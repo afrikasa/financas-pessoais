@@ -5,6 +5,9 @@ import {
 } from 'recharts';
 import { jsPDF } from 'jspdf';
 import PWAInstallPrompt from './components/PWAInstallPrompt';
+import FirebaseSyncPanel from './components/FirebaseSyncPanel';
+import { useFirebaseSync } from './hooks/useFirebaseSync';
+import { firebaseSync } from './services/firebaseSync';
 
 // Ícones SVG bonitos (em vez de emojis)
 const PlusCircle = ({ className = 'w-5 h-5' }) => (
@@ -82,6 +85,18 @@ function FinanceApp() {
   const [showCategories, setShowCategories] = useState(false);
   const [selectedLoan, setSelectedLoan] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
+  
+  // Firebase sync hook
+  const { 
+    user, 
+    loading: firebaseLoading, 
+    syncing, 
+    error: firebaseError,
+    signIn, 
+    signOut,
+    uploadLocalData,
+    downloadFirebaseData
+  } = useFirebaseSync();
   
   // Ref para o settings dropdown
   const settingsRef = useRef(null);
@@ -656,6 +671,42 @@ function FinanceApp() {
             <p className={`mt-1 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Gestão completa das tuas finanças</p>
           </div>
           <div className="flex items-center gap-3">
+            {/* Firebase Sync Panel */}
+            <FirebaseSyncPanel
+              user={user}
+              syncing={syncing}
+              error={firebaseError}
+              onSignIn={signIn}
+              onSignOut={signOut}
+              onUpload={async () => {
+                const localData = {
+                  transactions,
+                  accounts,
+                  categories,
+                  loans,
+                  investments,
+                  recurring
+                };
+                const success = await uploadLocalData(localData);
+                if (success) {
+                  alert('✅ Dados enviados para a cloud com sucesso!');
+                }
+              }}
+              onDownload={async () => {
+                const data = await downloadFirebaseData();
+                if (data) {
+                  if (data.transactions) setTransactions(data.transactions);
+                  if (data.accounts) setAccounts(data.accounts);
+                  if (data.categories) setCategories(data.categories);
+                  if (data.loans) setLoans(data.loans);
+                  if (data.investments) setInvestments(data.investments);
+                  if (data.recurring) setRecurring(data.recurring);
+                  alert('✅ Dados recebidos da cloud com sucesso!');
+                }
+              }}
+              darkMode={darkMode}
+            />
+            
             <button 
               onClick={toggleDarkMode}
               className={`p-3 rounded-full transition-all ${
