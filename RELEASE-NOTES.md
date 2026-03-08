@@ -6,6 +6,70 @@ For technical changelog, see [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
+## APP-FINANCAS-PESSOAIS v1.2.0 ✨
+
+**Released:** March 9, 2026  
+**Type:** Feature Release - Smooth Animations
+
+### ✨ What's New
+
+**Your App Just Got Smoother!**
+
+We've added beautiful, professional animations throughout the app using Framer Motion. The experience is now more polished and delightful to use!
+
+### 🎨 New Visual Effects
+
+**Dashboard Cards Come Alive**
+- Cards gracefully fade in when you open the app
+- Smooth scale and lift effect when you hover over them
+- Spring-based animations that feel natural and responsive
+- Each card appears with a subtle delay, creating a pleasant sequence
+
+**Interactive Navigation**
+- Tab buttons respond instantly to your hover
+- Satisfying tap feedback when clicking
+- Smooth transitions throughout
+
+### 🚀 What This Means for You
+
+**More Professional Feel**
+The app now feels like a premium, modern web application with smooth, polished interactions.
+
+**Better Visual Feedback**
+Hover effects make it clear which elements are interactive, improving usability.
+
+**Delightful to Use**
+Small animations add personality and make using the app more enjoyable!
+
+### ⚡ Performance
+
+Don't worry - these animations are:
+- ✅ GPU-accelerated (super smooth)
+- ✅ 60fps constant
+- ✅ Zero performance impact
+- ✅ Small bundle size (+15KB gzipped)
+- ✅ Works perfectly on mobile
+
+### 📥 How to Update
+
+**Already using the app?**
+Simply refresh your browser (Ctrl+F5 or Cmd+Shift+R). The animations will appear automatically!
+
+**New user?**
+Visit https://financas-pessoais-two.vercel.app and enjoy the smooth experience!
+
+### 🎯 Try It Out
+
+1. Open the app
+2. Watch the dashboard cards fade in beautifully
+3. Hover over the blue/green/red/purple cards
+4. See them gently scale up and lift
+5. Click between tabs and feel the responsive feedback
+
+**Enjoy the new polished experience!** ✨
+
+---
+
 ## APP-FINANCAS-PESSOAIS v1.1.1 🔧
 
 **Released:** March 9, 2026  

@@ -4,6 +4,7 @@ import {
   CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer 
 } from 'recharts';
 import { jsPDF } from 'jspdf';
+import { motion, AnimatePresence } from 'framer-motion';
 import PWAInstallPrompt from './components/PWAInstallPrompt';
 import FirebaseSyncPanel from './components/FirebaseSyncPanel';
 import { useFirebaseSync } from './hooks/useFirebaseSync';
@@ -834,7 +835,7 @@ function FinanceApp() {
             { id: 'accounts', label: 'Contas' },
             { id: 'investments', label: 'Investimentos' }
           ].map(tab => (
-            <button 
+            <motion.button 
               key={tab.id} 
               onClick={() => setActiveTab(tab.id)} 
               className={`px-6 py-3 font-medium rounded-full transition-all whitespace-nowrap ${
@@ -844,9 +845,11 @@ function FinanceApp() {
                     ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
               }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               {tab.label}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
@@ -859,7 +862,13 @@ function FinanceApp() {
               Visão Geral
             </h2>
             <div className="grid grid-cols-4 gap-8 mb-10">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl p-8 shadow-lg">
+              <motion.div 
+                className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl p-8 shadow-lg"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -869,8 +878,14 @@ function FinanceApp() {
                 </div>
                 <p className="text-blue-100 text-sm mb-2">Patrimônio Total</p>
                 <p className="text-3xl font-bold text-white">€{totalWealth.toFixed(2)}</p>
-              </div>
-              <div className="bg-gradient-to-br from-green-500 to-green-700 rounded-3xl p-8 shadow-lg">
+              </motion.div>
+              <motion.div 
+                className="bg-gradient-to-br from-green-500 to-green-700 rounded-3xl p-8 shadow-lg"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
+              >
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -880,8 +895,14 @@ function FinanceApp() {
                 </div>
                 <p className="text-green-100 text-sm mb-2">Receitas (Mês)</p>
                 <p className="text-4xl font-bold text-white">€{monthlyIncome.toFixed(2)}</p>
-              </div>
-              <div className="bg-gradient-to-br from-red-500 to-red-700 rounded-3xl p-8 shadow-lg">
+              </motion.div>
+              <motion.div 
+                className="bg-gradient-to-br from-red-500 to-red-700 rounded-3xl p-8 shadow-lg"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
+              >
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -891,8 +912,14 @@ function FinanceApp() {
                 </div>
                 <p className="text-red-100 text-sm mb-2">Despesas (Mês)</p>
                 <p className="text-3xl font-bold text-white">€{monthlyExpenses.toFixed(2)}</p>
-              </div>
-              <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-3xl p-8 shadow-lg">
+              </motion.div>
+              <motion.div 
+                className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-3xl p-8 shadow-lg"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
+              >
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -902,7 +929,7 @@ function FinanceApp() {
                 </div>
                 <p className="text-purple-100 text-sm mb-2">Poupança (Mês)</p>
                 <p className="text-3xl font-bold text-white">€{(monthlyIncome - monthlyExpenses).toFixed(2)}</p>
-              </div>
+              </motion.div>
             </div>
 
             {/* 📊 SEÇÃO DE GRÁFICOS */}
