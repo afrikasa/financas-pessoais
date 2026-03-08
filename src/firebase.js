@@ -8,12 +8,12 @@ import { getFirestore, enableIndexedDbPersistence } from 'firebase/firestore';
 // TODO: Replace with your Firebase project configuration
 // Get this from: Firebase Console → Project Settings → Your apps → Web app
 const firebaseConfig = {
-  apiKey: "AIzaSyDom7WdUx2-5wMTu5T1UoBJ1wvWJwsRZM4",
-  authDomain: "financas-pessoais-f3413.firebaseapp.com",
-  projectId: "financas-pessoais-f3413",
-  storageBucket: "financas-pessoais-f3413.firebasestorage.app",
-  messagingSenderId: "891664855211",
-  appId: "1:891664855211:web:870617ecb9c1a418ff47ee"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
 
 // Initialize Firebase
