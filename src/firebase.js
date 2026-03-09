@@ -1,20 +1,32 @@
 // Firebase Configuration
-// Replace with your Firebase project credentials
+// Uses environment variables from .env file (secure!)
+// NEVER commit API keys directly in code!
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, enableIndexedDbPersistence } from 'firebase/firestore';
 
-// TODO: Replace with your Firebase project configuration
-// Get this from: Firebase Console → Project Settings → Your apps → Web app
+// Firebase configuration from environment variables
+// Create a .env file in project root (see .env.example for template)
 const firebaseConfig = {
-  apiKey: "AIzaSyDom7WdUx2-5wMTu5T1UoBJ1wvWJwsRZM4",
-  authDomain: "financas-pessoais-f3413.firebaseapp.com",
-  projectId: "financas-pessoais-f3413",
-  storageBucket: "financas-pessoais-f3413.firebasestorage.app",
-  messagingSenderId: "891664855211",
-  appId: "1:891664855211:web:870617ecb9c1a418ff47ee"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
+
+// Validate configuration
+if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+  console.error('❌ Firebase configuration missing!');
+  console.error('📝 Steps to fix:');
+  console.error('   1. Copy .env.example to .env');
+  console.error('   2. Fill with your Firebase credentials');
+  console.error('   3. Restart dev server (npm run dev)');
+  console.error('📄 See FIREBASE-SETUP.md for detailed instructions');
+  throw new Error('Firebase configuration is incomplete. Please check your .env file.');
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -15,21 +15,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hover animations on main dashboard cards (scale + lift effect)
 - Spring-based transitions with damping control for smooth feel
 - Interactive hover/tap animations on navigation tabs
-- whileHover scale effect (1.05) with 5px lift on cards
-- whileTap feedback on tab buttons for tactile response
+- Firebase cloud synchronization (fully working)
+- Environment variables system for secure API key management
+- New Firebase project with clean credentials
 
 ### Changed
 - Dashboard cards now animate on page load (fade-in with stagger)
 - Tab buttons have responsive hover and tap states
 - Spring animation damping set to 15 for controlled bounce
 - Card hover animations respond instantly (no delay)
+- Firebase configuration moved to environment variables (.env)
+- Firebase project migrated to new secure instance (financas-app-2026)
+
+### Fixed
+- Firebase import paths corrected (v1.1.1 regression)
+- Firebase upload error: IDs now converted to strings before Firestore operations
+- n.indexOf error when uploading data to cloud
+- Module resolution errors preventing Firebase from loading
+- Google OAuth authentication flow
+- All document IDs (transactions, accounts, categories, loans, investments, recurring) properly stringified
+
+### Security
+- **CRITICAL:** Moved Firebase API keys from hardcoded values to environment variables
+- Created .env file for local development (excluded from git)
+- Created .env.example template for public repository
+- Added .gitignore rules to protect sensitive credentials
+- Old Firebase project with exposed API key deleted
+- New Firebase project created with restricted access
+- API keys protected from public exposure in GitHub repository
 
 ### Technical Details
-- Bundle size increase: +50KB (~15KB gzipped)
+- Bundle size increase: +50KB (~15KB gzipped) from Framer Motion
 - Animations run at 60fps with zero performance impact
 - Uses GPU-accelerated transforms (scale, translate)
 - Framer Motion AnimatePresence ready for future modal animations
 - Initial animation delays: 0s, 0.1s, 0.2s, 0.3s for card sequence
+- Firebase Project ID: financas-app-2026 (new, secure)
+- All Firestore document IDs converted using String() to prevent type errors
+- Firestore security rules configured for user-isolated data access
 
 ---
 

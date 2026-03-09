@@ -1,12 +1,12 @@
 # ✨ APP-FINANCAS-PESSOAIS v1.2.0
 
-**Released:** 08/03/2026
+**Released:** 09/03/2026
 **Type:** MINOR
 **Deploy:** https://financas-pessoais-two.vercel.app
 
 ---
 
-## ✨ Add Framer Motion animations
+## ✨ Animations + Security + Cloud Sync Fixes
 
 See [CHANGELOG.md](CHANGELOG.md) for complete details.
 

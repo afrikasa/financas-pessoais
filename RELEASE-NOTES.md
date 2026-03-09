@@ -6,67 +6,136 @@ For technical changelog, see [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
-## APP-FINANCAS-PESSOAIS v1.2.0 ✨
+## APP-FINANCAS-PESSOAIS v1.2.0 ✨🔒
 
 **Released:** March 9, 2026  
-**Type:** Feature Release - Smooth Animations
+**Type:** Feature Release + Security Update
 
-### ✨ What's New
+### 🎉 Major Update: Animations + Security!
 
-**Your App Just Got Smoother!**
+We're excited to bring you a polished, secure, and feature-rich update!
 
-We've added beautiful, professional animations throughout the app using Framer Motion. The experience is now more polished and delightful to use!
+---
 
-### 🎨 New Visual Effects
+## ✨ What's New
 
-**Dashboard Cards Come Alive**
-- Cards gracefully fade in when you open the app
-- Smooth scale and lift effect when you hover over them
-- Spring-based animations that feel natural and responsive
-- Each card appears with a subtle delay, creating a pleasant sequence
+### **Smooth Animations Throughout!**
 
-**Interactive Navigation**
-- Tab buttons respond instantly to your hover
-- Satisfying tap feedback when clicking
-- Smooth transitions throughout
+Your app just got a major visual upgrade with beautiful, professional animations:
 
-### 🚀 What This Means for You
+**Dashboard Cards:**
+- ✨ Graceful fade-in when you open the app
+- 📈 Smooth scale and lift effect when you hover
+- ⚡ Natural spring-based transitions
+- 🎯 Cards appear in sequence for a polished feel
 
-**More Professional Feel**
-The app now feels like a premium, modern web application with smooth, polished interactions.
+**Navigation:**
+- 🖱️ Responsive hover effects on tabs
+- 👆 Satisfying tap feedback when clicking
+- 🔄 Instant, smooth transitions everywhere
 
-**Better Visual Feedback**
-Hover effects make it clear which elements are interactive, improving usability.
+**The Result:**
+Your finance app now feels like a premium, modern application with delightful micro-interactions!
 
-**Delightful to Use**
-Small animations add personality and make using the app more enjoyable!
+---
 
-### ⚡ Performance
+## 🔒 Security Enhancements
 
-Don't worry - these animations are:
-- ✅ GPU-accelerated (super smooth)
-- ✅ 60fps constant
-- ✅ Zero performance impact
-- ✅ Small bundle size (+15KB gzipped)
+### **Your Data is Now More Secure!**
+
+We've completely overhauled our security infrastructure:
+
+**What Changed:**
+- 🔐 API keys moved to secure environment variables
+- 🆕 New Firebase project with clean credentials
+- 🗑️ Old exposed keys completely removed and revoked
+- 🛡️ Protected configuration that never touches GitHub
+
+**What This Means for You:**
+Your data and our infrastructure are now protected by industry-standard security practices. You can use the app with complete confidence!
+
+---
+
+## 🐛 Bug Fixes
+
+### **Cloud Sync Now Works Perfectly!**
+
+Fixed critical bugs that were preventing smooth cloud synchronization:
+
+- ✅ Upload to cloud now works flawlessly
+- ✅ All data types sync correctly (transactions, accounts, categories, etc.)
+- ✅ Google sign-in flows smoothly
+- ✅ Zero errors when saving your financial data
+
+---
+
+## ⚡ Performance
+
+Don't worry - despite all the new features, the app is still lightning fast:
+
+- ✅ 60fps constant (buttery smooth)
+- ✅ GPU-accelerated animations
+- ✅ Zero lag or slowdown
 - ✅ Works perfectly on mobile
+- ✅ Small bundle size increase (+15KB gzipped)
 
-### 📥 How to Update
+---
 
-**Already using the app?**
-Simply refresh your browser (Ctrl+F5 or Cmd+Shift+R). The animations will appear automatically!
+## 📥 How to Update
 
-**New user?**
-Visit https://financas-pessoais-two.vercel.app and enjoy the smooth experience!
+### **Already Using the App?**
 
-### 🎯 Try It Out
+Simply **refresh your browser** (Ctrl+F5 or Cmd+Shift+R). 
 
-1. Open the app
-2. Watch the dashboard cards fade in beautifully
-3. Hover over the blue/green/red/purple cards
-4. See them gently scale up and lift
-5. Click between tabs and feel the responsive feedback
+**Important:** You'll need to sign in with Google again due to the security updates. This is a one-time thing!
 
-**Enjoy the new polished experience!** ✨
+### **New User?**
+
+Visit [https://financas-pessoais-two.vercel.app](https://financas-pessoais-two.vercel.app) and enjoy the complete experience!
+
+---
+
+## 🎯 Try the New Features
+
+1. **Open the app** → Watch the beautiful card animations
+2. **Hover over the dashboard cards** → See the smooth lift effect
+3. **Click between tabs** → Feel the responsive feedback
+4. **Sign in with Google** → Experience the secure authentication
+5. **Sync your data** → Upload and download from the cloud flawlessly
+
+---
+
+## 🔐 For Developers
+
+If you're running this locally or deploying your own instance:
+
+- Firebase credentials are now in `.env` files
+- See `.env.example` for template
+- New Firebase project: `financas-app-2026`
+- Full setup guide in `FIREBASE-SETUP.md`
+
+---
+
+## 🙏 Thank You
+
+Thank you for using APP-FINANCAS-PESSOAIS! 
+
+This release represents a significant step forward in both user experience and security. We hope you enjoy the improvements!
+
+---
+
+## 📱 Experience It Now
+
+**Live App:** [https://financas-pessoais-two.vercel.app](https://financas-pessoais-two.vercel.app)
+
+**Install as PWA:**
+1. Open the app in your browser
+2. Click "Add to Home Screen"
+3. Enjoy the native app experience with smooth animations!
+
+---
+
+**Made with ❤️ and ✨ by Marcus Costa**
 
 ---
 

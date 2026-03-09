@@ -38,7 +38,7 @@ class FirebaseSyncService {
   async saveTransaction(transaction) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const transactionRef = doc(db, 'users', this.userId, 'transactions', transaction.id);
+    const transactionRef = doc(db, 'users', this.userId, 'transactions', String(transaction.id));
     await setDoc(transactionRef, {
       ...transaction,
       updatedAt: serverTimestamp()
@@ -56,7 +56,7 @@ class FirebaseSyncService {
   async deleteTransaction(transactionId) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const transactionRef = doc(db, 'users', this.userId, 'transactions', transactionId);
+    const transactionRef = doc(db, 'users', this.userId, 'transactions', String(transactionId));
     await deleteDoc(transactionRef);
   }
 
@@ -80,7 +80,7 @@ class FirebaseSyncService {
   async saveAccount(account) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const accountRef = doc(db, 'users', this.userId, 'accounts', account.id);
+    const accountRef = doc(db, 'users', this.userId, 'accounts', String(account.id));
     await setDoc(accountRef, {
       ...account,
       updatedAt: serverTimestamp()
@@ -98,7 +98,7 @@ class FirebaseSyncService {
   async deleteAccount(accountId) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const accountRef = doc(db, 'users', this.userId, 'accounts', accountId);
+    const accountRef = doc(db, 'users', this.userId, 'accounts', String(accountId));
     await deleteDoc(accountRef);
   }
 
@@ -122,7 +122,7 @@ class FirebaseSyncService {
   async saveCategory(category) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const categoryRef = doc(db, 'users', this.userId, 'categories', category.id);
+    const categoryRef = doc(db, 'users', this.userId, 'categories', String(category.id));
     await setDoc(categoryRef, {
       ...category,
       updatedAt: serverTimestamp()
@@ -140,7 +140,7 @@ class FirebaseSyncService {
   async deleteCategory(categoryId) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const categoryRef = doc(db, 'users', this.userId, 'categories', categoryId);
+    const categoryRef = doc(db, 'users', this.userId, 'categories', String(categoryId));
     await deleteDoc(categoryRef);
   }
 
@@ -164,7 +164,7 @@ class FirebaseSyncService {
   async saveLoan(loan) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const loanRef = doc(db, 'users', this.userId, 'loans', loan.id);
+    const loanRef = doc(db, 'users', this.userId, 'loans', String(loan.id));
     await setDoc(loanRef, {
       ...loan,
       updatedAt: serverTimestamp()
@@ -182,7 +182,7 @@ class FirebaseSyncService {
   async deleteLoan(loanId) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const loanRef = doc(db, 'users', this.userId, 'loans', loanId);
+    const loanRef = doc(db, 'users', this.userId, 'loans', String(loanId));
     await deleteDoc(loanRef);
   }
 
@@ -206,7 +206,7 @@ class FirebaseSyncService {
   async saveInvestment(investment) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const investmentRef = doc(db, 'users', this.userId, 'investments', investment.id);
+    const investmentRef = doc(db, 'users', this.userId, 'investments', String(investment.id));
     await setDoc(investmentRef, {
       ...investment,
       updatedAt: serverTimestamp()
@@ -224,7 +224,7 @@ class FirebaseSyncService {
   async deleteInvestment(investmentId) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const investmentRef = doc(db, 'users', this.userId, 'investments', investmentId);
+    const investmentRef = doc(db, 'users', this.userId, 'investments', String(investmentId));
     await deleteDoc(investmentRef);
   }
 
@@ -248,7 +248,7 @@ class FirebaseSyncService {
   async saveRecurring(recurring) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const recurringRef = doc(db, 'users', this.userId, 'recurring', recurring.id);
+    const recurringRef = doc(db, 'users', this.userId, 'recurring', String(recurring.id));
     await setDoc(recurringRef, {
       ...recurring,
       updatedAt: serverTimestamp()
@@ -266,7 +266,7 @@ class FirebaseSyncService {
   async deleteRecurring(recurringId) {
     if (!this.userId) throw new Error('User not authenticated');
     
-    const recurringRef = doc(db, 'users', this.userId, 'recurring', recurringId);
+    const recurringRef = doc(db, 'users', this.userId, 'recurring', String(recurringId));
     await deleteDoc(recurringRef);
   }
 
@@ -295,7 +295,7 @@ class FirebaseSyncService {
     // Upload transactions
     if (data.transactions) {
       data.transactions.forEach(transaction => {
-        const ref = doc(db, 'users', this.userId, 'transactions', transaction.id);
+        const ref = doc(db, 'users', this.userId, 'transactions', String(transaction.id));
         batch.set(ref, { ...transaction, updatedAt: serverTimestamp() });
       });
     }
@@ -303,7 +303,7 @@ class FirebaseSyncService {
     // Upload accounts
     if (data.accounts) {
       data.accounts.forEach(account => {
-        const ref = doc(db, 'users', this.userId, 'accounts', account.id);
+        const ref = doc(db, 'users', this.userId, 'accounts', String(account.id));
         batch.set(ref, { ...account, updatedAt: serverTimestamp() });
       });
     }
@@ -311,7 +311,7 @@ class FirebaseSyncService {
     // Upload categories
     if (data.categories) {
       data.categories.forEach(category => {
-        const ref = doc(db, 'users', this.userId, 'categories', category.id);
+        const ref = doc(db, 'users', this.userId, 'categories', String(category.id));
         batch.set(ref, { ...category, updatedAt: serverTimestamp() });
       });
     }
@@ -319,7 +319,7 @@ class FirebaseSyncService {
     // Upload loans
     if (data.loans) {
       data.loans.forEach(loan => {
-        const ref = doc(db, 'users', this.userId, 'loans', loan.id);
+        const ref = doc(db, 'users', this.userId, 'loans', String(loan.id));
         batch.set(ref, { ...loan, updatedAt: serverTimestamp() });
       });
     }
@@ -327,7 +327,7 @@ class FirebaseSyncService {
     // Upload investments
     if (data.investments) {
       data.investments.forEach(investment => {
-        const ref = doc(db, 'users', this.userId, 'investments', investment.id);
+        const ref = doc(db, 'users', this.userId, 'investments', String(investment.id));
         batch.set(ref, { ...investment, updatedAt: serverTimestamp() });
       });
     }
@@ -335,7 +335,7 @@ class FirebaseSyncService {
     // Upload recurring
     if (data.recurring) {
       data.recurring.forEach(rec => {
-        const ref = doc(db, 'users', this.userId, 'recurring', rec.id);
+        const ref = doc(db, 'users', this.userId, 'recurring', String(rec.id));
         batch.set(ref, { ...rec, updatedAt: serverTimestamp() });
       });
     }
